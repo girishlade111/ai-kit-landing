@@ -1,30 +1,96 @@
-# Ai Kit Landing
+# AI Kit Landing
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+A dark, modern landing page for an AI-powered SEO / marketing toolkit, originally generated with [v0.app](https://v0.app). Bold gradient hero, glassy navigation, and shadcn/ui component styling — ready to fork and adapt for any AI SaaS product launch.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/gileb64375-5584s-projects/v0-ai-kit-landing)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/projects/lEzLK4mFr0c)
+## What it does
 
-## Overview
+- Showcases an AI toolkit product ("Boost your rankings with AI") with a high-impact hero section.
+- Responsive landing layout: fixed nav, hero, feature highlights, waitlist CTA.
+- Built entirely from reusable UI components — easy to rebrand and extend.
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+## Features
+
+- **Hero section** with layered gradient/conic background effects and announcement pill.
+- **Sticky glass navigation** with Features / Developers / Pricing / Changelog links and a "Join waitlist" CTA.
+- **shadcn/ui component set** — Button, plus a full Radix UI library (dialog, dropdown, tabs, toast, accordion, carousel, and more).
+- **Dark-first design** with Tailwind CSS, animated utilities, and the Geist font.
+- **Theme provider** (next-themes) ready for light/dark toggling.
+- **Vercel Analytics** wired in.
+- Fully **static-exportable** (`output: "export"` in `next.config.mjs`) — deployable to any static host (Cloudflare Pages, GitHub Pages, Netlify).
+
+## Tech stack
+
+- **Next.js 15** (App Router) + **React 19** + **TypeScript**
+- **Tailwind CSS 3.4** + `tailwindcss-animate`, `clsx`, `tailwind-merge`, `class-variance-authority`
+- **shadcn/ui** + **Radix UI** primitives, Lucide icons
+- **next-themes**, **Geist** font, **Vercel Analytics**
+- Package manager: pnpm (`pnpm-lock.yaml`)
+
+## Quick start
+
+```bash
+# 1. Clone
+git clone https://github.com/girishlade111/ai-kit-landing.git
+cd ai-kit-landing
+
+# 2. Install dependencies
+pnpm install        # or: npm install
+
+# 3. Run the dev server
+pnpm dev            # or: npm run dev
+```
+
+Open http://localhost:3000 in your browser.
+
+### Build (static export)
+
+```bash
+pnpm build          # or: npm run build
+```
+
+The static site is emitted to `out/` (via `output: "export"`). Serve it with any static server:
+
+```bash
+npx serve out
+```
+
+## Project structure
+
+```
+ai-kit-landing/
+├── app/
+│   ├── page.tsx        # Landing page (hero, nav, sections)
+│   ├── layout.tsx      # Root layout, fonts, theme provider
+│   └── globals.css     # Tailwind + custom styles
+├── components/
+│   ├── ui/             # shadcn/ui components (button, dialog, tabs, …)
+│   └── theme-provider.tsx
+├── lib/
+│   └── utils.ts        # cn() class-name helper
+├── public/             # Static assets
+├── components.json     # shadcn/ui config
+├── next.config.mjs     # Next.js config (static export enabled)
+└── tailwind.config.js  # Tailwind theme config
+```
+
+## Environment variables
+
+None required. The app runs without any secrets or API keys. (If you wire up a real waitlist backend later, add your keys in a `.env.local` file — it is already git-ignored.)
 
 ## Deployment
 
-Your project is live at:
+This project is statically exportable, so it can be deployed anywhere that serves static files:
 
-**[https://vercel.com/gileb64375-5584s-projects/v0-ai-kit-landing](https://vercel.com/gileb64375-5584s-projects/v0-ai-kit-landing)**
+- **Cloudflare Pages** — live at https://ai-kit-landing.pages.dev
+- Alternatively: GitHub Pages, Netlify Drop, Vercel, or any static host — just upload the `out/` directory after `pnpm build`.
 
-## Build your app
+No server, no database, no build-time secrets needed.
 
-Continue building your app on:
+## Notes
 
-**[https://v0.app/chat/projects/lEzLK4mFr0c](https://v0.app/chat/projects/lEzLK4mFr0c)**
+- Generated with v0.app; the original v0 sync README has been replaced with this documentation.
+- ESLint/TypeScript errors are ignored during builds (`next.config.mjs`) for frictionless static export.
 
-## How It Works
+---
 
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+Built by Girish Lade — https://ladestack.in
